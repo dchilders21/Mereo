@@ -56,10 +56,7 @@ class App extends Component {
                 </ul>
               </nav>
               <ul className="social-list clearfix">
-                <li> <a href=""><i className="fa fa-telegram"></i></a> </li>
-                <li> <a href=""><i className="fa fa-facebook"></i></a> </li>
-                <li> <a href=""><i className="fa fa-reddit"></i></a> </li>
-                <li> <a href=""><i className="fa fa-youtube"></i></a> </li>
+                <li> <a href=""><i className="fa fa-medium"></i></a> </li>
                 <li> <a href=""><i className="fa fa-twitter"></i></a> </li>
               </ul>
             </header>

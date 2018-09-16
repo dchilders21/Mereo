@@ -1,7 +1,7 @@
 import React from 'react';
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import axios from 'axios'
 import client from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
@@ -33,9 +33,49 @@ class DataTable extends React.Component {
 
 
   render() {
+
     this.state.rankings.sort(function (a, b) {
       return a.rank - b.rank;
     });
+
+    const data = this.state.rankings;
+
+    const columns = [{
+      Header: 'Rank',
+      accessor: 'rank', // String-based value accessors!
+    },
+    {
+      Header: '',
+      accessor: 'logo', // String-based value accessors!
+      width: 54,
+      Cell: row => (
+        <div className="icons"><img src={urlFor(row.value)} alt="" /></div>
+      )
+    },
+    {
+      Header: 'BP Name',
+      accessor: 'name' // String-based value accessors!
+    },
+    {
+      Header:() => <div>Voter <br/>Diversity</div>,
+      accessor: 'voterDiversity' // String-based value accessors!
+    },
+    {
+      Header:() => <div>Disclosure &<br/>Accessibility</div>,
+      accessor: 'disclosure' // String-based value accessors!
+    },
+    {
+      Header:() => <div>Structure &<br/>Leadership</div>,
+      accessor: 'structure' // String-based value accessors!
+    },
+    {
+      Header:() => <div>Value-Add <br/>Tools</div>,
+      accessor: 'valueAdd' // String-based value accessors!
+    },
+    {
+      Header:() => <div>Total <br/>Score</div>,
+      accessor: 'total' // String-based value accessors!
+    }]
 
     return (
       <div id="container">
@@ -45,40 +85,11 @@ class DataTable extends React.Component {
         </div>
         <div className="element tile-2 tile-table home bg-change">
           <p className="small">Data Table</p>
-          <Table className="table">
-            <Thead>
-              <Tr>
-                <Th scope="col">Rank</Th>
-                <Th scope="col"></Th>
-                <Th scope="col">BP Name</Th>
-                <Th scope="col">Voter Diversity</Th>
-                <Th scope="col">Disclosure & Accessibility</Th>
-                <Th scope="col">Structure & Leadership</Th>
-                <Th scope="col">Value-Add Tools</Th>
-                <Th scope="col">Total Score</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {
-                  this.state.rankings.map(function(rank){
-                    //console.log(urlFor(rank.logo));
-                    //const url = urlFor(rank.logo);
-                    return (
-                      <Tr key={rank._id}>
-                        <Th scope="row">{rank.rank}</Th>
-                        <Td><div className="icons"><img src={urlFor(rank.logo)} alt="" /></div></Td>
-                        <Td><Link to={'/' + rank._id}>{rank.name}</Link></Td>
-                        <Td>{rank.voterDiversity}</Td>
-                        <Td>{rank.disclosure}</Td>
-                        <Td>{rank.structure}</Td>
-                        <Td>{rank.valueAdd}</Td>
-                        <Td>{rank.total}</Td>
-                      </Tr>
-                    );
-                  })
-                }
-            </Tbody>
-          </Table>
+          <ReactTable
+            data={data}
+            columns={columns}
+            className="-striped -highlight"
+          />
         </div>
       </div>
     );

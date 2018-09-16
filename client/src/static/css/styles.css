@@ -1252,9 +1252,9 @@ header .social-list li {
 	position: relative;
 	height: 42px;
 	width: 42px;
-	margin-top: 25px;
+	/* margin-top: 25px;
 	margin-bottom: 15px;
-	display: inline-block;
+	display: inline-block; */
 }
 .centered .icons {
 	float: none;
@@ -1529,4 +1529,15 @@ ul.pagination li a.active:hover {
 .responsiveTable .icons {
   margin: 0px;
   vertical-align: middle;
+}
+
+.ReactTable {
+  margin-top: 20px;
+}
+
+.rt-tr {
+  align-items: center;
+}
+.rt-td {
+  text-align: center;
 }

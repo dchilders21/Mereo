@@ -19,6 +19,11 @@ export default {
       type: 'string'
     },
     {
+      name: 'updated',
+      title: 'Last Updated',
+      type: 'string'
+    },
+    {
       name: 'logo',
       title: 'Logo',
       type: 'image',
@@ -55,6 +60,21 @@ export default {
       name: 'address',
       title: 'Address',
       type: 'blockContent'
+    },
+    {
+      name: 'json',
+      title: 'JSON',
+      type: 'string'
+    },
+    {
+      name: 'ownership',
+      title: 'Ownership Disclosure',
+      type: 'string'
+    },
+    {
+      name: 'code',
+      title: 'Code of Conduct',
+      type: 'string'
     }
   ],
   preview: {

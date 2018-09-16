@@ -58,12 +58,10 @@ class Details extends React.Component {
           <h4 className="header icon-to-the-right">{details.name}</h4>
           <p><a href={"https://www." + details.website} target="_blank" title="">{details.website}</a> <i className="fa fa-external-link"></i></p>
           <BlockContent blocks={details.address} serializers={serializers} />
+          <p><a href={"https://www." + details.json} target="_blank" title="">BP JSON</a> <i className="fa fa-external-link"></i></p>
+          <p><a href={"https://www." + details.ownership} target="_blank" title="">Ownership Disclosure</a> <i className="fa fa-external-link"></i></p>
+          <p><a href={"https://www." + details.code} target="_blank" title="">Code of Conduct</a> <i className="fa fa-external-link"></i></p>
           <div className="icons absolute-top-right"><img src={urlFor(details.logo)} alt="" /></div>
-        </div>
-        <div className="element tile-1 home bg-change">
-          <p className="small">Pillar 1</p>
-          <h4 className="header">Voter Diversity</h4>
-          <BlockContent blocks={details.voterDiversity} serializers={serializers} />
         </div>
         <div className="element tile-3 home bg-change">
           <p className="small">Pillar 2</p>
@@ -79,6 +77,11 @@ class Details extends React.Component {
           <p className="small">Pillar 4</p>
           <h4 className="header">Value Add Products</h4>
           <BlockContent blocks={details.valueAdd} serializers={serializers} />
+        </div>
+        <div className="element tile-1 home bg-change">
+          <p className="small">Pillar 1</p>
+          <h4 className="header">Voter Diversity</h4>
+          <BlockContent blocks={details.voterDiversity} serializers={serializers} />
         </div>
       </div>
     );

@@ -53,8 +53,12 @@ class DataTable extends React.Component {
       )
     },
     {
-      Header: 'BP Name',
-      accessor: 'name' // String-based value accessors!
+      Header:() => <div>Block <br/>Producer</div>,
+      accessor: 'name', // String-based value accessors!
+      //accessor: d => d.name,
+      Cell: props => (
+        <Link to={'/' + props.original._id}>{props.original.name}</Link>
+      )
     },
     {
       Header:() => <div>Voter <br/>Diversity</div>,
@@ -75,6 +79,10 @@ class DataTable extends React.Component {
     {
       Header:() => <div>Total <br/>Score</div>,
       accessor: 'total' // String-based value accessors!
+    },
+    {
+      Header: 'Last Updated',
+      accessor: 'updated' // String-based value accessors!
     }]
 
     return (
@@ -90,6 +98,14 @@ class DataTable extends React.Component {
             columns={columns}
             className="-striped -highlight"
           />
+        </div>
+        <div className="element home tile-2">
+          <p>Certain components of the Mereo.io ranking methodology require my
+          judgement and interpretation, which may be different from yours.
+          In addition, my analysis may include unintended errors or miscalculations
+          which could significantly affect a Block Producer’s score.
+          Please also conduct your own research and due diligence before voting
+          for Block Producers or setting proxymereoio as your voter proxy.</p>
         </div>
       </div>
     );

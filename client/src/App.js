@@ -40,7 +40,11 @@ class App extends Component {
             <div id="menu-button">
               <div className="centralizer">
                 <div className="cursor">
-                  <div id="nav-button"> <span className="nav-bar"></span> <span className="nav-bar"></span> <span className="nav-bar"></span> </div>
+                  <div id="nav-button">
+                    <span className="nav-bar"></span>
+                    <span className="nav-bar"></span>
+                    <span className="nav-bar"></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -52,6 +56,11 @@ class App extends Component {
               <nav id="main-nav">
                 <ul className="clearfix" id="options">
                   <li><Link to='/'>Home</Link></li>
+                  <li><Link to='/'>Methodology</Link></li>
+                  <li><Link to='/'>FAQs</Link></li>
+                  <li><Link to='/'>About Mereo</Link></li>
+                  <li><Link to='/'>Contact Us</Link></li>
+                  <li><Link to='/'>Proxy</Link></li>
 
                 </ul>
               </nav>
@@ -67,11 +76,9 @@ class App extends Component {
                 <Route path="/:id" component={Details} />
               </div>
             </div>
-
             <footer id="footer">
               <div className="container clearfix">
-                <p className="alignleft">© 2018, Beaumont Theme. <br />
-                  <a href="" title="">Privacy Policy</a> <span className="padding">&#183;</span> <a href="" title="">Terms of Service</a> </p>
+                <p className="alignleft">Donations: supportmereo (EOS) or 0xa991C0E97a2B556cEb61b6618A618ac6091e105f (ETH)</p>
                 <p className="alignright">Powered by <a href="http://chnkyfire.com/" data-title="CHNKYFIRE">CHNKYFIRE</a>.</p>
               </div>
             </footer>

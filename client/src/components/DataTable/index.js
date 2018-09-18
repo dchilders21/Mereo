@@ -27,6 +27,7 @@ class DataTable extends React.Component {
   }
 
   componentDidMount(){
+    const { match: { params } } = this.props;
     axios.get('https://xoai8qe63e.execute-api.us-west-1.amazonaws.com/dev/todos')
     .then(json => this.setState({rankings: json.data.message}))
   }
@@ -57,7 +58,7 @@ class DataTable extends React.Component {
       accessor: 'name', // String-based value accessors!
       //accessor: d => d.name,
       Cell: props => (
-        <Link to={'/' + props.original._id}>{props.original.name}</Link>
+        <Link to={'bp/' + props.original._id}>{props.original.name}</Link>
       )
     },
     {
@@ -87,10 +88,7 @@ class DataTable extends React.Component {
 
     return (
       <div id="container">
-        <div className="element tile-2 home bg-change">
-          <p className="small">About</p>
-          <h1 className="header">Transfer value beyond borders instantly, reliably, and at almost no cost. Beaumont is a platform that connects banks, payments systems, and people.</h1>
-        </div>
+
         <div className="element tile-2 tile-table home bg-change">
           <p className="small">Data Table</p>
           <ReactTable

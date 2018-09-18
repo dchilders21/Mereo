@@ -55,14 +55,19 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
-
   listRankings:
     handler: todos/listRankings.list
     events:
       - http:
           path: todos
+          method: get
+          cors: true
+
+  getPage:
+    handler: summary/summary.getPage
+    events:
+      - http:
+          path: summary/{page}
           method: get
           cors: true
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import DataTable from './components/DataTable'
 import Details from './components/Details'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Pages from './components/Pages'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './App.css';
 import './static/css/reset.css';
 import './static/css/bootstrap.min.css';
@@ -35,7 +36,6 @@ class App extends Component {
             </div>
           </div>
 
-
           <div id="wrap">
             <div id="menu-button">
               <div className="centralizer">
@@ -49,19 +49,22 @@ class App extends Component {
               </div>
             </div>
 
-
             <header id="header" className="clearfix">
               <h1 id="logo"><Link to='/'>mereo</Link></h1>
 
               <nav id="main-nav">
                 <ul className="clearfix" id="options">
                   <li><Link to='/'>Home</Link></li>
-                  <li><Link to='/'>Methodology</Link></li>
-                  <li><Link to='/'>FAQs</Link></li>
-                  <li><Link to='/'>About Mereo</Link></li>
-                  <li><Link to='/'>Contact Us</Link></li>
-                  <li><Link to='/'>Proxy</Link></li>
-
+                  <li><Link to={{
+                    pathname: '/methodology',
+                    state: {
+                        page: 'methodology'
+                      }
+                    }}>Methodology</Link></li>
+                  <li><Link to='/faqs'>FAQs</Link></li>
+                  <li><Link to='/about'>About</Link></li>
+                  <li><Link to='/contact'>Contact Us</Link></li>
+                  <li><Link to='/proxy'>Proxy</Link></li>
                 </ul>
               </nav>
               <ul className="social-list clearfix">
@@ -72,8 +75,11 @@ class App extends Component {
 
             <div id="content">
               <div className="container clearfix">
-                <Route exact path="/" component={DataTable} />
-                <Route path="/:id" component={Details} />
+                <Switch>
+                  <Route exact path="/" component={DataTable} />
+                  <Route exact path='/:page' component={Pages}/>
+                  <Route path="/bp/:id" component={Details} />
+                </Switch>
               </div>
             </div>
             <footer id="footer">

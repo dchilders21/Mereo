@@ -7,6 +7,7 @@ const client = sanityClient({
 })
 
 module.exports.list = (event, context, callback) => {
+  //console.log(event.pathParameters.id);
 
   client
   .fetch(
@@ -43,12 +44,9 @@ module.exports.getSummary = (event, context, callback) => {
     //'*[_type == "producer" && _id == $id]',
     {
     id: event.pathParameters.id // Params (optional)
-    //id: tempId, // Local
     } // Params (optional)
   )
   .then(res => {
-    console.log(res);
-    console.log(' ********* ');
     const producerDetails = {
       name: res[0].name,
       website: res[0].website,

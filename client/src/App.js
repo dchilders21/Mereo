@@ -61,10 +61,10 @@ class App extends Component {
                         page: 'methodology'
                       }
                     }}>Methodology</Link></li>
-                  <li><Link to='/faqs'>FAQs</Link></li>
-                  <li><Link to='/about'>About</Link></li>
+                  <li><Link to='/about'>About Mereo</Link></li>
                   <li><Link to='/contact'>Contact Us</Link></li>
                   <li><Link to='/proxy'>Proxy</Link></li>
+                  <li><Link to='/faqs'>FAQs</Link></li>
                 </ul>
               </nav>
               <ul className="social-list clearfix">

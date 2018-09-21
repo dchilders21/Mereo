@@ -5,11 +5,16 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios'
 import client from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
+import BlockContent from '@sanity/block-content-to-react'
 
 const builder = imageUrlBuilder(client)
 
 function urlFor(source) {
   return builder.dataset('eos').projectId('j5zwyy1n').image(source)
+}
+
+function toDecimal(numberString) {
+    return numberString.toFixed(1);
 }
 
 
@@ -18,7 +23,8 @@ class DataTable extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      rankings: []
+      rankings: [],
+      short: ''
     }
   }
 
@@ -28,8 +34,14 @@ class DataTable extends React.Component {
 
   componentDidMount(){
     const { match: { params } } = this.props;
-    axios.get('https://xoai8qe63e.execute-api.us-west-1.amazonaws.com/dev/todos')
-    .then(json => this.setState({rankings: json.data.message}))
+    axios.get('https://xoai8qe63e.execute-api.us-west-1.amazonaws.com/dev/summary')
+    .then((response1) => {
+      axios.get('https://xoai8qe63e.execute-api.us-west-1.amazonaws.com/dev/todos')
+      .then((response2) => {
+        this.setState({rankings: response2.data.message, short: response1.data.message})
+      })
+    })
+    //.then(json => this.setState({rankings: json.data.message}))
   }
 
 
@@ -40,6 +52,17 @@ class DataTable extends React.Component {
     });
 
     const data = this.state.rankings;
+    const short = this.state.short;
+
+    const serializers = {
+      types: {
+        code: props => (
+          <pre data-language={props.node.language}>
+            <code>{props.node.code}</code>
+          </pre>
+        )
+      }
+    }
 
     const columns = [{
       Header: 'Rank',
@@ -63,23 +86,28 @@ class DataTable extends React.Component {
     },
     {
       Header:() => <div>Voter <br/>Diversity</div>,
-      accessor: 'voterDiversity' // String-based value accessors!
+      accessor: 'voterDiversity', // String-based value accessors!
+      Cell: row => <div> {toDecimal(row.value)} </div>
     },
     {
       Header:() => <div>Disclosure &<br/>Accessibility</div>,
-      accessor: 'disclosure' // String-based value accessors!
+      accessor: 'disclosure', // String-based value accessors!
+      Cell: row => <div> {toDecimal(row.value)} </div>
     },
     {
       Header:() => <div>Structure &<br/>Leadership</div>,
-      accessor: 'structure' // String-based value accessors!
+      accessor: 'structure', // String-based value accessors!
+      Cell: row => <div> {toDecimal(row.value)} </div>
     },
     {
       Header:() => <div>Value-Add <br/>Tools</div>,
-      accessor: 'valueAdd' // String-based value accessors!
+      accessor: 'valueAdd', // String-based value accessors!
+      Cell: row => <div> {toDecimal(row.value)} </div>
     },
     {
       Header:() => <div>Total <br/>Score</div>,
-      accessor: 'total' // String-based value accessors!
+      accessor: 'total', // String-based value accessors!
+      Cell: row => <div> {toDecimal(row.value)} </div>
     },
     {
       Header: 'Last Updated',
@@ -87,18 +115,21 @@ class DataTable extends React.Component {
     }]
 
     return (
-      <div id="container">
+      <div>
 
-        <div className="element tile-2 tile-table home bg-change">
-          <p className="small">Data Table</p>
+      <div className="section home bg-change">
+        <p className="small">About</p>
+        <BlockContent blocks={short.page} serializers={serializers} />
+      </div>
+
+        <div className="section home bg-change">
+          <p className="small">EOS Block Producer Performance Summary</p>
           <ReactTable
             data={data}
             columns={columns}
             className="-striped -highlight"
           />
-        </div>
-        <div className="element home tile-2">
-          <p>Certain components of the Mereo.io ranking methodology require my
+          <p className="disclaimer">Certain components of the Mereo.io ranking methodology require my
           judgement and interpretation, which may be different from yours.
           In addition, my analysis may include unintended errors or miscalculations
           which could significantly affect a Block Producer’s score.

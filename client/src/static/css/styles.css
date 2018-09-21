@@ -1534,6 +1534,7 @@ ul.pagination li a.active:hover {
 
 .ReactTable {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .rt-tr {
@@ -1541,4 +1542,29 @@ ul.pagination li a.active:hover {
 }
 .rt-td {
   text-align: center;
+}
+
+.tile-short {
+  width: 100%;
+}
+
+.disclaimer {
+  font-size: 12px;
+}
+
+.section {
+  padding: 45px 60px;
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+
+.section.bg-change {
+	background: #fff;
+	transition: box-shadow 0.3s ease-in-out;
+}
+a:hover .section.bg-change {
+	-webkit-box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.05);
+	box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.05);
+	-webkit-transition: box-shadow 0.3s ease-in-out;
+	transition: box-shadow 0.3s ease-in-out;
 }

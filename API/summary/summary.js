@@ -7,8 +7,6 @@ const client = sanityClient({
 })
 
 module.exports.getPage = (event, context, callback) => {
-  console.log(event);
-  console.log(' ===== ')
   const page = event.pathParameters.page;
   client
   .fetch(
@@ -30,6 +28,38 @@ module.exports.getPage = (event, context, callback) => {
       },
       body: JSON.stringify({
         message: content,
+        input: event,
+      }),
+    };
+
+    callback(null, response);
+  })
+  .catch(err => {
+    console.error('Oh no, error occured: ', err)
+
+  })
+};
+
+module.exports.getShort = (event, context, callback) => {
+
+  client
+  .fetch(
+    '*[_type == $type]', // Query
+    {type: 'about'} // Params (optional)
+  )
+  .then(res => {
+    const short = {
+      page: res[0].short
+    }
+    //console.log(short);
+    const response = {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+        "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS
+      },
+      body: JSON.stringify({
+        message: short,
         input: event,
       }),
     };

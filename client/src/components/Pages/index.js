@@ -41,7 +41,6 @@ class Pages extends React.Component {
   }
 
   componentDidMount() {
-    console.log( ' --------- ');
     const { match: { params } } = this.props;
     axios.get('https://xoai8qe63e.execute-api.us-west-1.amazonaws.com/dev/summary/' + params.page)
     .then(json => this.setState({content: json.data.message}))

@@ -5,12 +5,6 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object and document schemas
 import blockContent from './blockContent'
-import crewMember from './crewMember'
-import castMember from './castMember'
-import movie from './movie'
-import person from './person'
-import screening from './screening'
-import plotSummaries from './plotSummaries'
 import producer from './producer'
 import about from './about'
 import methodology from './methodology'

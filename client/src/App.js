@@ -91,7 +91,7 @@ class App extends Component {
                 <div className="alignright">
                   <p>Powered by <a href="http://chnkyfire.com/" data-title="CHNKYFIRE">CHNKYFIRE</a>.</p>
                 </div>
-                <div className="footerMiddle">
+                <div className="alignleft">
                   <p>Scoring under Disclosure & Accessibility and Leadership & Structure is generally based on proper and sufficient onsite (or linked) disclosure of these items. For example, some BPs provide links to a Code of Conduct which is in fact their Candidacy Introduction post. Often, these lack proper discussion of BP values and operating guidelines. Therefore, under this scenario, a BP would receive a “Not Disclosed” (ND) designation next to the Code of Conduct scoring component.</p>
                 </div>
               </div>

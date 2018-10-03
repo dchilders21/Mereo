@@ -132,7 +132,7 @@ class DataTable extends React.Component {
             data={data}
             columns={columns}
             className="-striped -highlight"
-            defaultPageSize={60}
+            defaultPageSize={55}
           />
           <p className="disclaimer">Certain components of the Mereo.io ranking methodology require my
           judgement and interpretation, which may be different from yours.

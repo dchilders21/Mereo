@@ -1581,8 +1581,12 @@ a:hover .section.bg-change {
   clear: both;
 }
 
+#container > div > div > h4:first-of-type {
+  margin-top: 30px;
+}
+
 #footer .alignleft {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .footerMiddle p {

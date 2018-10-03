@@ -24,7 +24,9 @@ class DataTable extends React.Component {
     super(props)
     this.state = {
       rankings: [],
-      short: ''
+      short: {
+        page: []
+      }
     }
   }
 
@@ -46,6 +48,8 @@ class DataTable extends React.Component {
 
 
   render() {
+
+
 
     this.state.rankings.sort(function (a, b) {
       return a.rank - b.rank;
@@ -117,8 +121,8 @@ class DataTable extends React.Component {
     return (
       <div>
 
-      <div className="section home bg-change">
-        <p className="small">About</p>
+      <div className="section home bg-change about-mereo">
+        <p className="small">About Mereo</p>
         <BlockContent blocks={short.page} serializers={serializers} />
       </div>
 
@@ -128,6 +132,7 @@ class DataTable extends React.Component {
             data={data}
             columns={columns}
             className="-striped -highlight"
+            defaultPageSize={60}
           />
           <p className="disclaimer">Certain components of the Mereo.io ranking methodology require my
           judgement and interpretation, which may be different from yours.

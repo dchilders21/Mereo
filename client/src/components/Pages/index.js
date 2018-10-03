@@ -15,7 +15,9 @@ class Pages extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      content: [],
+      content: {
+        page: []
+      },
     }
   }
 

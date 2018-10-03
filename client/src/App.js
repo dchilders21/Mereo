@@ -68,8 +68,8 @@ class App extends Component {
                 </ul>
               </nav>
               <ul className="social-list clearfix">
-                <li> <a href=""><i className="fa fa-medium"></i></a> </li>
-                <li> <a href=""><i className="fa fa-twitter"></i></a> </li>
+                <li> <a href="https://medium.com/@blockchainkid"><i className="fa fa-medium"></i></a> </li>
+                <li> <a href="https://twitter.com/blockchainkid"><i className="fa fa-twitter"></i></a> </li>
               </ul>
             </header>
 
@@ -78,14 +78,22 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" component={DataTable} />
                   <Route exact path='/:page' component={Pages}/>
-                  <Route path="/bp/:id" component={Details} />
+                  <Route exact path="/bp/:id" component={Details} />
                 </Switch>
               </div>
             </div>
             <footer id="footer">
               <div className="container clearfix">
-                <p className="alignleft">Donations: supportmereo (EOS) or 0xa991C0E97a2B556cEb61b6618A618ac6091e105f (ETH)</p>
-                <p className="alignright">Powered by <a href="http://chnkyfire.com/" data-title="CHNKYFIRE">CHNKYFIRE</a>.</p>
+                <div className="alignleft">
+                  <p>Donations: supportmereo (EOS) or 0xa991C0E97a2B556cEb61b6618A618ac6091e105f (ETH)</p>
+                  <p>Top 5 Voter Concentration has been calculated by aggregating votes across all Bitfinex voting accounts</p>
+                </div>
+                <div className="alignright">
+                  <p>Powered by <a href="http://chnkyfire.com/" data-title="CHNKYFIRE">CHNKYFIRE</a>.</p>
+                </div>
+                <div className="footerMiddle">
+                  <p>Scoring under Disclosure & Accessibility and Leadership & Structure is generally based on proper and sufficient onsite (or linked) disclosure of these items. For example, some BPs provide links to a Code of Conduct which is in fact their Candidacy Introduction post. Often, these lack proper discussion of BP values and operating guidelines. Therefore, under this scenario, a BP would receive a “Not Disclosed” (ND) designation next to the Code of Conduct scoring component.</p>
+                </div>
               </div>
             </footer>
           </div>

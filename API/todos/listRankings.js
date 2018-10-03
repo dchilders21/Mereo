@@ -50,6 +50,10 @@ module.exports.getSummary = (event, context, callback) => {
     const producerDetails = {
       name: res[0].name,
       website: res[0].website,
+      address: res[0].address,
+      json: res[0].json,
+      ownership: res[0].ownership,
+      code: res[0].code,
       logo: res[0].logo,
       address: res[0].address,
       voterDiversity: res[0].details[0].voterDiversity,

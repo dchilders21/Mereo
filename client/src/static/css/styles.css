@@ -1569,7 +1569,7 @@ a:hover .section.bg-change {
 	transition: box-shadow 0.3s ease-in-out;
 }
 
-.about-mereo p {
+.about-mereo p, .pages p {
   margin-bottom: 20px;
 }
 

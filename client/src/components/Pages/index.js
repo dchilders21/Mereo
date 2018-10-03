@@ -66,7 +66,7 @@ class Pages extends React.Component {
 
     return (
       <div id="container">
-        <div className="element tile-2 home bg-change">
+        <div className="element tile-2 home bg-change pages">
           <p className="small">{page}</p>
           <BlockContent blocks={content.page} serializers={serializers} />
         </div>

@@ -86,7 +86,7 @@ class App extends Component {
               <div className="container clearfix">
                 <div className="alignleft">
                   <p>Donations: supportmereo (EOS) or 0xa991C0E97a2B556cEb61b6618A618ac6091e105f (ETH)</p>
-                  <p>Top 5 Voter Concentration has been calculated by aggregating votes across all Bitfinex voting accounts</p>
+                  <p>To more fairly reflect Voter Diversity, scoring adjustments have been made in some instances to account for the multiple users and accounts which are aggregated under Bitfinex voting wallets</p>
                 </div>
                 <div className="alignright">
                   <p>Powered by <a href="http://chnkyfire.com/" data-title="CHNKYFIRE">CHNKYFIRE</a>.</p>

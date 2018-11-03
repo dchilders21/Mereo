@@ -39,7 +39,7 @@ class Details extends React.Component {
         layoutMode: 'packery'
     });
     const { match: { params } } = this.props;
-    axios.get('https://xoai8qe63e.execute-api.us-west-1.amazonaws.com/dev/todos/' + params.id)
+    axios.get('https://vlihxbj1cl.execute-api.us-west-1.amazonaws.com/dev/todos/' + params.id)
     .then(json => this.setState({details: json.data.message}))
   }
 

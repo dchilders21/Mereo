@@ -1593,3 +1593,8 @@ a:hover .section.bg-change {
   text-align: center;
   font-size: 12px;
 }
+
+.ReactTypeformEmbed {
+  position: relative !important;
+  height: 600px !important;
+}

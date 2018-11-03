@@ -12,7 +12,9 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "react-super-responsive-table": "^4.3.2",
-    "react-table": "^6.8.6"
+    "react-table": "^6.8.6",
+    "react-typeform-embed": "^0.1.6",
+    "react-wufoo-embed": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

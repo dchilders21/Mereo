@@ -36,9 +36,9 @@ class DataTable extends React.Component {
 
   componentDidMount(){
     const { match: { params } } = this.props;
-    axios.get('https://xoai8qe63e.execute-api.us-west-1.amazonaws.com/dev/summary')
+    axios.get('https://vlihxbj1cl.execute-api.us-west-1.amazonaws.com/dev/summary')
     .then((response1) => {
-      axios.get('https://xoai8qe63e.execute-api.us-west-1.amazonaws.com/dev/todos')
+      axios.get('https://vlihxbj1cl.execute-api.us-west-1.amazonaws.com/dev/todos')
       .then((response2) => {
         this.setState({rankings: response2.data.message, short: response1.data.message})
       })
@@ -57,6 +57,9 @@ class DataTable extends React.Component {
 
     const data = this.state.rankings;
     const short = this.state.short;
+
+    const tableLength = data.length;
+    console.log(tableLength);
 
     const serializers = {
       types: {
@@ -91,22 +94,22 @@ class DataTable extends React.Component {
     {
       Header:() => <div>Voter <br/>Diversity</div>,
       accessor: 'voterDiversity', // String-based value accessors!
-      Cell: row => <div> {toDecimal(row.value)} </div>
+      Cell: row => <div> {row.value} </div>
     },
     {
       Header:() => <div>Disclosure &<br/>Accessibility</div>,
       accessor: 'disclosure', // String-based value accessors!
-      Cell: row => <div> {toDecimal(row.value)} </div>
+      Cell: row => <div> {row.value} </div>
     },
     {
       Header:() => <div>Structure &<br/>Leadership</div>,
       accessor: 'structure', // String-based value accessors!
-      Cell: row => <div> {toDecimal(row.value)} </div>
+      Cell: row => <div> {row.value} </div>
     },
     {
       Header:() => <div>Value-Add <br/>Tools</div>,
       accessor: 'valueAdd', // String-based value accessors!
-      Cell: row => <div> {toDecimal(row.value)} </div>
+      Cell: row => <div> {row.value} </div>
     },
     {
       Header:() => <div>Total <br/>Score</div>,
@@ -132,7 +135,8 @@ class DataTable extends React.Component {
             data={data}
             columns={columns}
             className="-striped -highlight"
-            defaultPageSize={55}
+            pageSize={tableLength}
+            showPagination={false}
           />
           <p className="disclaimer">Certain components of the Mereo.io ranking methodology require my
           judgement and interpretation, which may be different from yours.
